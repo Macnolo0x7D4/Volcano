@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/Menu.png" type="Texture" id=2]
+[ext_resource path="res://assets/Button.png" type="Texture" id=3]
+[ext_resource path="res://assets/comic-sans-ms.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 4 )
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="MenuImage" type="TextureRect" parent="."]
+margin_left = -1.50732
+margin_top = 1.50734
+margin_right = 1023.49
+margin_bottom = 603.507
+texture = ExtResource( 2 )
+
+[node name="Init" type="Button" parent="."]
+margin_left = 373.302
+margin_top = 231.302
+margin_right = 590.302
+margin_bottom = 462.302
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Init"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -485.548
+margin_top = -377.034
+margin_right = 637.452
+margin_bottom = 222.966
+texture = ExtResource( 3 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 927.249
+margin_top = 24.056
+margin_right = 976.249
+margin_bottom = 50.056
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+
+[node name="Label" type="Label" parent="."]
+margin_left = 862.161
+margin_top = 17.9193
+margin_right = 930.161
+margin_bottom = 50.9193
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score:"
+[connection signal="pressed" from="Init" to="." method="_on_Init_pressed"]
