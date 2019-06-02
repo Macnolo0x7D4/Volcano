@@ -1,4 +1,6 @@
 # Volcano
+[![Build Status](https://travis-ci.org/mcn2004/Volcano.svg?branch=master)](https://travis-ci.org/mcn2004/Volcano)
+
 A simple game created with open-source.
 
 This game was created, programmed and designed by open-source tools, such as Godot, Krita and LMMS.
