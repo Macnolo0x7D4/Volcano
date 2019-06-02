@@ -36,7 +36,6 @@ func _process(delta):
 			$CollisionShape.position.x = -20
 	else:
 		$Sprite.playing = false
-	
 
 func _on_Player_body_entered(body):
 	hide()

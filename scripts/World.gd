@@ -1,11 +1,13 @@
 extends Node
 export (PackedScene) var Rock
 var Score
+var last_score
 
 func _ready():
 	randomize()
 	
 func _on_Menu_initgame():
+	last_score = Score
 	Score = 0
 	$Player.initial($InitPosition.position)
 	$InitialTimer.start()
@@ -15,6 +17,8 @@ func _on_Menu_initgame():
 	$RockTimer.wait_time = .5
 	
 func _on_Player_collision():
+	$Menu.update_highscore(Score,last_score)
+	last_score = Score
 	$ScoreTimer.stop()
 	$RockTimer.stop()
 	$Menu.game_over()
