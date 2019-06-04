@@ -2,15 +2,13 @@ extends Area2D
 
 export (int) var speed
 var move = Vector2()
-var limit
+var limit = Vector2(1024,600)
+
 signal collision
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
-	limit = get_viewport_rect().size
-	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	move = Vector2()
@@ -40,7 +38,6 @@ func _process(delta):
 func _on_Player_body_entered(body):
 	hide()
 	emit_signal("collision")
-	$CollisionShape.disabled = true
 	
 func initial(pos):
 	position = pos

@@ -2,7 +2,12 @@ extends CanvasLayer
 
 signal initgame
 
-func show_message(text):
+func _process(delta):
+	if Input.is_action_pressed("ui_select"):
+		_on_Init_pressed()
+	#if Input.is_action_pressed("ui_cancel"):
+		#if get_tree().paused == true
+func show_message():
 	pass
 	
 func game_over():
