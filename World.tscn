@@ -16,9 +16,10 @@ script = ExtResource( 1 )
 Rock = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 603.0
 texture = ExtResource( 3 )
+expand = true
 
 [node name="Menu" parent="." instance=ExtResource( 4 )]
 
@@ -28,7 +29,6 @@ position = Vector2( 120, 430 )
 [node name="Player" parent="." instance=ExtResource( 5 )]
 
 [node name="RockTimer" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
 

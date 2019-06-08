@@ -1,14 +1,25 @@
 extends Node
 export (PackedScene) var Rock
-var Score
+var Score = 0
 var last_score
+var speed_max = 0
+var speed_min = 0
 
 func _ready():
 	randomize()
-	
+func _process(delta):
+	if  (Score + 1) % 5 == 0:
+		speed_max += 2
+		speed_min += 2
+	if (Score + 1) % 10 == 0:
+		if $RockTimer.wait_time > .5:
+			$RockTimer.wait_time -= .25
+		
 func _on_Menu_initgame():
 	last_score = Score
 	Score = 0
+	speed_max = 0
+	speed_min = 0
 	$Player.initial($InitPosition.position)
 	$InitialTimer.start()
 	#$Menu.show_message("Ready")
@@ -46,4 +57,4 @@ func _on_RockTimer_timeout():
 	
 	d += rand_range(-PI /4, PI /4)
 	R.rotation = d
-	R.set_linear_velocity(Vector2(rand_range(R.speed_min, R.speed_max),0).rotated(d))
+	R.set_linear_velocity(Vector2(rand_range(R.speed_min + speed_min, R.speed_max + speed_max),0).rotated(d))

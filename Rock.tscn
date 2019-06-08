@@ -3,10 +3,10 @@
 [ext_resource path="res://scripts/Rock.gd" type="Script" id=1]
 [ext_resource path="res://assets/Rock1.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 61.2351
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -17,16 +17,25 @@ animations = [ {
 [node name="Rock" type="RigidBody2D"]
 collision_layer = 0
 script = ExtResource( 1 )
-speed_min = 750
-speed_max = 1000
+speed_min = 200
+speed_max = 300
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2( 6, 6 )
+amount = 10
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+gravity = Vector2( 0, -70 )
+scale_amount = 0.8
+color = Color( 0.960784, 0, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2.26105, 0.753723 )
 scale = Vector2( 0.135929, 0.165369 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
