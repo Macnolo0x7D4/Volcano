@@ -27,7 +27,7 @@ func _on_Menu_initgame():
 	$TextureRect.show()
 	$RockTimer.wait_time = .5
 	
-func _on_Player_collision():
+func _on_Player_collision(): # Game Over
 	$Menu.update_highscore(Score,last_score)
 	last_score = Score
 	$ScoreTimer.stop()

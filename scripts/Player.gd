@@ -28,7 +28,7 @@ func _process(delta):
 	
 	if move.x != 0:
 		$Sprite.flip_h = move.x < 0
-		if move.x < 0:
+		if $Sprite.flip_h:
 			$CollisionShape.position.x = 20
 		else:
 			$CollisionShape.position.x = -20
@@ -36,6 +36,8 @@ func _process(delta):
 		$Sprite.playing = false
 
 func _on_Player_body_entered(body):
+	if $Sprite.flip_h:
+		$Sprite.flip_h = false
 	hide()
 	emit_signal("collision")
 	
